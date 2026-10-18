@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spice Garden | Fine Indian Dining</title>
+<meta name="description" content="Spice Garden is a modern Indian restaurant offering refined dishes, warm hospitality, private dining, and easy online reservations.">
+<meta name="theme-color" content="#0b0d10">
+<style>
+:root{
+--bg:#0b0d10;--surface:#12161b;--surface-2:#171c22;--text:#f2f4f6;--muted:#b6bfc9;
+--gold:#e0b64a;--gold-hover:#f0cd6d;--line:#262d36;--focus:#8ab4f8;--radius:18px;
+--shadow:0 18px 45px rgba(0,0,0,.35)
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:Inter,"Segoe UI",Arial,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:6px}
+.skip-link{position:absolute;left:-999px;top:12px;background:var(--gold);color:#111;padding:10px 16px;border-radius:8px;z-index:100}
+.skip-link:focus{left:16px}
+.container{width:min(1180px,92%);margin:auto}
+header{position:sticky;top:0;z-index:100;background:rgba(11,13,16,.9);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:16px 0}
+.logo{display:flex;align-items:center;gap:10px;font-family:Georgia,serif;font-size:1.4rem}
+.logo-mark{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--gold),#8a6a1c);display:grid;place-items:center;color:#111;font-weight:800}
+.logo span{color:var(--gold)}
+.nav-links{display:flex;align-items:center;gap:26px;font-size:.94rem;color:var(--muted)}
+.nav-links a{padding:8px 2px;border-bottom:2px solid transparent;transition:.2s}
+.nav-links a:hover,.nav-links a[aria-current="true"]{color:var(--text);border-color:var(--gold)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--gold);color:#111;border:0;border-radius:999px;padding:14px 26px;font-weight:750;font-size:.95rem;cursor:pointer;transition:.2s;min-height:48px}
+.btn:hover{background:var(--gold-hover);transform:translateY(-2px)}
+.btn-outline{background:transparent;border:1.5px solid var(--gold);color:var(--gold)}
+.btn-outline:hover{background:rgba(224,182,74,.14);color:var(--gold-hover)}
+.menu-toggle{display:none;background:var(--surface);border:1px solid var(--line);color:var(--text);width:48px;height:48px;border-radius:12px;font-size:1.2rem;cursor:pointer}
+.mobile-menu{display:none;background:var(--surface);border-bottom:1px solid var(--line);padding:12px 0 20px}
+.mobile-menu.open{display:block}
+.mobile-menu a{display:block;padding:14px 0;border-bottom:1px solid var(--line);color:var(--muted)}
+.mobile-menu a:last-child{border:0}
+.hero{position:relative;min-height:92vh;display:flex;align-items:center;background:linear-gradient(100deg,rgba(11,13,16,.96) 20%,rgba(11,13,16,.72) 58%,rgba(11,13,16,.35)),url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1800&q=75') center/cover}
+.hero-inner{padding:120px 0}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--gold);letter-spacing:.24em;text-transform:uppercase;font-size:.76rem;font-weight:700;margin-bottom:18px}
+.eyebrow::before{content:"";width:28px;height:1px;background:var(--gold)}
+h1,h2,h3{font-family:Georgia,serif;line-height:1.15;letter-spacing:-.01em}
+.hero h1{font-size:clamp(2.7rem,6.5vw,5.1rem);max-width:780px;margin-bottom:20px}
+.hero p{max-width:590px;color:var(--muted);font-size:1.08rem;margin-bottom:34px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.trust{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px;color:var(--muted);font-size:.9rem}
+.trust span{background:rgba(255,255,255,.06);border:1px solid var(--line);padding:8px 14px;border-radius:999px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:70px;border-radius:var(--radius);overflow:hidden}
+.stat{background:var(--surface);padding:28px;text-align:center}
+.stat strong{display:block;font-family:Georgia,serif;font-size:1.8rem;color:var(--gold)}
+.stat span{color:var(--muted);font-size:.85rem}
+section{padding:104px 0}
+.section-head{max-width:700px;margin-bottom:56px}
+.section-head.center{margin-inline:auto;text-align:center}
+h2{font-size:clamp(2rem,3.8vw,3rem);margin-bottom:14px}
+.lead{color:var(--muted);font-size:1.03rem}
+.grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:.25s}
+.card:hover{transform:translateY(-6px);border-color:rgba(224,182,74,.5);box-shadow:var(--shadow)}
+.card img{height:250px;width:100%;object-fit:cover}
+.card-body{padding:26px}
+.card h3{font-size:1.28rem;margin-bottom:10px}
+.card p{color:var(--muted);font-size:.96rem}
+.dishes{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+.dish{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:.25s}
+.dish:hover{transform:translateY(-6px);border-color:rgba(224,182,74,.5);box-shadow:var(--shadow)}
+.dish img{height:225px;width:100%;object-fit:cover}
+.dish-body{padding:22px}
+.dish h3{font-size:1.16rem;margin-bottom:7px}
+.dish p{color:var(--muted);font-size:.94rem}
+.tag{display:inline-block;margin-top:14px;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(224,182,74,.35);padding:6px 11px;border-radius:999px}
+.about{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
+.about-img{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow)}
+.about-img img{height:540px;width:100%;object-fit:cover}
+.checklist{list-style:none;margin-top:28px;display:grid;gap:14px}
+.checklist li{display:flex;gap:12px;color:var(--muted)}
+.checklist li::before{content:"✓";color:var(--gold);font-weight:900}
+.visit{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:48px;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:38px}
+.visit h3{color:var(--gold);margin-bottom:10px;font-size:1.15rem}
+.visit p{color:var(--muted)}
+.form{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:38px;max-width:760px;margin:auto}
+.form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px;margin-top:28px}
+label{display:block;font-size:.86rem;color:var(--muted);margin-bottom:7px}
+input,select,textarea{width:100%;background:#0e1116;border:1px solid var(--line);color:var(--text);padding:14px;border-radius:12px;font:inherit;min-height:50px}
+input:focus,select:focus,textarea:focus{border-color:var(--gold);outline:none}
+.cta{background:linear-gradient(120deg,#151a20,#0f1318);border:1px solid var(--line);border-radius:var(--radius);padding:70px;text-align:center}
+.cta p{color:var(--muted);max-width:560px;margin:0 auto 30px}
+footer{border-top:1px solid var(--line);padding:40px 0;background:#080a0c}
+.footer{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;color:var(--muted);font-size:.9rem}
+.footer-links{display:flex;gap:20px;flex-wrap:wrap}
+.footer-links a:hover{color:var(--gold)}
+@media(max-width:900px){.about{grid-template-columns:1fr}.about-img img{height:380px}.nav-links,.desktop-cta{display:none}.menu-toggle{display:grid;place-items:center}}
+@media(max-width:520px){section{padding:78px 0}.hero-inner{padding:90px 0}.visit,.form,.cta{padding:28px}}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header>
+  <div class="container nav">
+    <a class="logo" href="#top" aria-label="Spice Garden home">
+      <span class="logo-mark" aria-hidden="true">S</span> Spice <span>Garden</span>
+    </a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="#about">About</a>
+      <a href="#menu">Menu</a>
+      <a href="#experience">Experience</a>
+      <a href="#visit">Visit</a>
+      <a href="#reserve">Reservations</a>
+    </nav>
+    <a class="btn desktop-cta" href="#reserve">Reserve a Table</a>
+    <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">☰</button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="container">
+      <a href="#about">About</a>
+      <a href="#menu">Menu</a>
+      <a href="#experience">Experience</a>
+      <a href="#visit">Visit</a>
+      <a href="#reserve">Reservations</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero" id="top">
+  <div class="container hero-inner">
+    <p class="eyebrow">Fine Indian Dining</p>
+    <h1>Refined flavors, crafted with intention.</h1>
+    <p>Spice Garden brings traditional Indian recipes, seasonal ingredients, and contemporary presentation together in an elegant, welcoming setting.</p>
+    <div class="hero-actions">
+      <a class="btn" href="#menu">Explore the Menu</a>
+      <a class="btn btn-outline" href="#reserve">Book a Table</a>
+    </div>
+    <div class="trust">
+      <span>★ 4.8 guest rating</span>
+      <span>Vegetarian options</span>
+      <span>Private dining</span>
+      <span>Takeaway available</span>
+    </div>
+    <div class="stats">
+      <div class="stat"><strong>12+</strong><span>Years of hospitality</span></div>
+      <div class="stat"><strong>40+</strong><span>Signature dishes</span></div>
+      <div class="stat"><strong>4.8★</strong><span>Guest rating</span></div>
+      <div class="stat"><strong>Daily</strong><span>Fresh preparations</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container about">
+    <div>
+      <p class="eyebrow">Our Story</p>
+      <h2>A modern take on timeless Indian cuisine</h2>
+      <p class="lead">Our kitchen celebrates the depth of Indian spices while embracing fresh, seasonal produce and refined plating. Every dish is designed to feel familiar, yet exceptional.</p>
+      <ul class="checklist">
+        <li>Chef-led menu with seasonal specials</li>
+        <li>Locally sourced produce and quality ingredients</li>
+        <li>Vegetarian, vegan, and gluten-friendly options</li>
+        <li>Private dining and event hosting available</li>
+      </ul>
+      <div style="margin-top:36px"><a class="btn btn-outline" href="#menu">View Our Dishes</a></div>
+    </div>
+    <div class="about-img">
+      <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1200&q=75" alt="Elegant Spice Garden dining room with warm lighting and set tables">
+    </div>
+  </div>
+</section>
+
+<section id="menu" style="background:var(--surface-2);border-block:1px solid var(--line)">
+  <div class="container">
+    <div class="section-head center">
+      <p class="eyebrow">Signature Menu</p>
+      <h2>Dishes worth gathering for</h2>
+      <p class="lead">A selection of our most-loved plates, prepared fresh throughout the day.</p>
+    </div>
+    <div class="dishes">
+      <article class="dish">
+        <img src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/960e4c61-50d4-51ba-ad2a-877087b1d4a5/19224aba-9d47-5c9d-b28b-9cf9a1d53f5f.jpg" alt="Butter chicken served in a skillet with cilantro garnish">
+        <div class="dish-body"><h3>Butter Chicken</h3><p>Char-grilled chicken simmered in a smooth tomato and cashew gravy.</p><span class="tag">Chef’s favorite</span></div>
+      </article>
+      <article class="dish">
+        <img src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/bbb2aa86-e3af-540c-af28-f8465e5dc33b/e783270c-3baf-5339-9376-fa9b699509c2.jpg" alt="Paneer tikka masala in a ceramic bowl">
+        <div class="dish-body"><h3>Paneer Tikka Masala</h3><p>Grilled paneer with peppers and onions in a rich spiced sauce.</p><span class="tag">Vegetarian</span></div>
+      </article>
+      <article class="dish">
+        <img src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/f5742b1e-55a4-585b-865d-a5c5a02e1f9f/0831c2a9-3a2b-5bf7-b70f-05f1d51f5cdb.jpg" alt="Tandoori platter with grilled items and chutneys">
+        <div class="dish-body"><h3>Tandoori Platter</h3><p>Chicken tikka, seekh kebab, paneer tikka, naan, and mint chutney.</p><span class="tag">Great for sharing</span></div>
+      </article>
+      <article class="dish">
+        <img src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/8facf5a2-3f1a-5338-a8a3-c1fe38c35ed2/e0768043-f16d-5667-a3cd-c51a212d68ac.jpg" alt="Lamb rogan josh curry dish">
+        <div class="dish-body"><h3>Lamb Rogan Josh</h3><p>Slow-cooked lamb with Kashmiri spices and fragrant saffron rice.</p><span class="tag">Slow-cooked</span></div>
+      </article>
+      <article class="dish">
+        <img src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/75c21cd7-2686-5e7c-b6e0-dd5869851878/aa3592ca-9e7c-5bc2-b61b-ce7172992d92.jpg" alt="Mango lassi in a glass">
+        <div class="dish-body"><h3>Mango Lassi</h3><p>Chilled yogurt blended with sweet mango and a touch of cardamom.</p><span class="tag">Refreshing</span></div>
+      </article>
+      <article class="dish">
+        <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=1000&q=75" alt="Seasonal Indian curry prepared by the chef">
+        <div class="dish-body"><h3>Chef’s Curry Special</h3><p>A rotating seasonal curry created by our head chef.</p><span class="tag">Seasonal</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="container">
+    <div class="section-head center">
+      <p class="eyebrow">The Experience</p>
+      <h2>More than a meal</h2>
+      <p class="lead">From intimate dinners to private celebrations, we create a welcoming atmosphere for every occasion.</p>
+    </div>
+    <div class="grid-3">
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1000&q=75" alt="Restaurant table setting with plates and glasses">
+        <div class="card-body"><h3>Elegant Dining</h3><p>Warm lighting, attentive service, and a calm setting for relaxed conversations.</p></div>
+      </article>
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1000&q=75" alt="Chef preparing food in a professional kitchen">
+        <div class="card-body"><h3>Chef’s Craft</h3><p>Our team prepares each plate with fresh ingredients and carefully balanced spices.</p></div>
+      </article>
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?auto=format&fit=crop&w=1000&q=75" alt="Guests enjoying a private dining event">
+        <div class="card-body"><h3>Private Events</h3><p>Host birthdays, corporate dinners, and celebrations with tailored menus.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="visit">
+  <div class="container">
+    <div class="section-head center">
+      <p class="eyebrow">Visit Us</p>
+      <h2>Find us & plan your visit</h2>
+    </div>
+    <div class="visit">
+      <div><h3>Location</h3><p>123 Garden Street<br>Your City, State 00000</p></div>
+      <div><h3>Opening Hours</h3><p>Monday–Thursday: 12:00–22:00<br>Friday–Sunday: 12:00–23:00</p></div>
+      <div><h3>Contact</h3><p><a href="tel:+15551234567">+1 (555) 123-4567</a><br><a href="mailto:hello@spicegarden.com">hello@spicegarden.com</a></p></div>
+      <div><h3>Good to Know</h3><p>Walk-ins welcome. For groups of six or more, please book in advance.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="reserve" style="background:var(--surface-2);border-block:1px solid var(--line)">
+  <div class="container">
+    <div class="section-head center">
+      <p class="eyebrow">Reservations</p>
+      <h2>Book your table</h2>
+      <p class="lead">Choose a date and time, and we’ll confirm your reservation by phone or email.</p>
+    </div>
+    <form class="form" action="#" method="post" aria-label="Reservation form">
+      <div class="form-grid">
+        <div><label for="name">Full name</label><input id="name" name="name" type="text" autocomplete="name" required placeholder="Your name"></div>
+        <div><label for="phone">Phone</label><input id="phone" name="phone" type="tel" autocomplete="tel" required placeholder="+1 555 123 4567"></div>
+        <div><label for="date">Date</label><input id="date" name="date" type="date" required></div>
+        <div><label for="time">Time</label><input id="time" name="time" type="time" required></div>
+        <div><label for="guests">Guests</label><select id="guests" name="guests"><option>1 guest</option><option selected>2 guests</option><option>3 guests</option><option>4 guests</option><option>5 guests</option><option>6+ guests</option></select></div>
+        <div><label for="notes">Special requests</label><input id="notes" name="notes" type="text" placeholder="Birthday, allergies, seating preference"></div>
+      </div>
+      <div style="margin-top:26px"><button class="btn" type="submit">Request Reservation</button></div>
+    </form>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="cta">
+      <p class="eyebrow" style="justify-content:center">Book Now</p>
+      <h2>Your table is waiting</h2>
+      <p>Call us or reserve online to enjoy an evening of exceptional food and hospitality.</p>
+      <a class="btn" href="tel:+15551234567">Call to Reserve</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container footer">
+    <p>© 2026 Spice Garden. All rights reserved.</p>
+    <nav class="footer-links" aria-label="Footer navigation">
+      <a href="#menu">Menu</a><a href="#visit">Visit</a><a href="#reserve">Reservations</a><a href="#">Privacy</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+const toggle=document.getElementById('menuToggle'),menu=document.getElementById('mobileMenu');
+toggle.addEventListener('click',()=>{const open=menu.classList.toggle('open');toggle.setAttribute('aria-expanded',open);toggle.setAttribute('aria-label',open?'Close menu':'Open menu');toggle.textContent=open?'✕':'☰';});
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menu.classList.remove('open');toggle.setAttribute('aria-expanded','false');toggle.textContent='☰';}));
+</script>
+</body>
+</html>
